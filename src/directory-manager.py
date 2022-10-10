@@ -45,8 +45,8 @@ TEXT__LINE_WIDTH_X80         = ("-"*3)+"DIRECTORIES"+("-"*77)
 TEXT__LINE_WIDTH_X80_END     = ("-"*3)+"___________"+("-"*77)
 TEXT__SELECT_OPTION          = "> Select option ('c' -> cancel):\n"
 TEXT__RETRY_SELECT_OPTION    = "> Please, select option ('c' -> cancel):\n"
-TEXT__SELECT_DIRECTORY       = "> Select directory or index ('c' -> cancel | '..' -> top level):\n"
-TEXT__RETRY_SELECT_DIRECTORY = "> Please, select directory or index ('c' -> cancel | '..' -> top level):\n"
+TEXT__SELECT_DIRECTORY       = "> Select index of directory or write name ('c' -> cancel | '..' -> top level):\n"
+TEXT__RETRY_SELECT_DIRECTORY = "> Please, select index of directory or write name ('c' -> cancel | '..' -> top level):\n"
 TEXT__FINISH_SCRIPT          = "> Finish script"
 TEXT__NO_DIRECTORIES         = "> Empty"
 TEXT__YOU_HERE               = "> You here: %s"
@@ -111,7 +111,7 @@ def load_config(file_config=DEFAULT__FILE_CONFIG):
     with open(file_config) as f:
         json_data = json.load(f)
 
-    os.chdir(json_data["path"])
+    os.chdir(json_data["origin_path"])
 
 def run_option():
 
