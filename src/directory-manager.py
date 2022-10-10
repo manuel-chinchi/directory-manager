@@ -14,7 +14,7 @@ import os
 import json
 
 
-DEFAULT__JSON_CONFIG = "config.json"
+DEFAULT__FILE_CONFIG = "config.json"
 
 DEFAULT__DIR = "."
 
@@ -50,7 +50,7 @@ TEXT__RETRY_SELECT_DIRECTORY = "> Please, select directory or index ('c' -> canc
 TEXT__FINISH_SCRIPT          = "> Finish script"
 TEXT__NO_DIRECTORIES         = "> Empty"
 TEXT__YOU_HERE               = "> You here: %s"
-
+TEXT__EMPTY                  = ""
 
 def list_directories(dir=DEFAULT__DIR):
     """Show list directories in order."""
@@ -107,7 +107,7 @@ def input_option(message=""):
     finally:
         return option
 
-def load_config(file_config=DEFAULT__JSON_CONFIG):
+def load_config(file_config=DEFAULT__FILE_CONFIG):
     with open(file_config) as f:
         json_data = json.load(f)
 
@@ -166,7 +166,7 @@ def run_option():
                 os.chdir(current_dir + "\\" + select_dir)
                 
             current_dir = os.getcwd()
-            print("")
+            print(TEXT__EMPTY)
     exit()
 
 def main():
