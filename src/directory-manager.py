@@ -13,7 +13,7 @@
 import os
 import json
 
-
+DEFAULT__LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 DEFAULT__FILE_CONFIG = "config.json"
 
 DEFAULT__DIR = "."
@@ -172,7 +172,7 @@ def run_option():
 def main():
     print(TEXT__HEADER_SCRIPT)
     print(TEXT__MENU_SCRIPT)
-    load_config()
+    load_config(DEFAULT__LOCAL_PATH + "\\config.json")
     run_option()
 
 main()
