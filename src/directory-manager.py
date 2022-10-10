@@ -11,6 +11,10 @@
 # -----------------------------------------------------------
 
 import os
+import json
+
+
+DEFAULT__JSON_CONFIG = "config.json"
 
 DEFAULT__DIR = "."
 
@@ -103,6 +107,12 @@ def input_option(message=""):
     finally:
         return option
 
+def load_config(file_config=DEFAULT__JSON_CONFIG):
+    with open(file_config) as f:
+        json_data = json.load(f)
+
+    os.chdir(json_data["path"])
+
 def run_option():
 
     option = input_option(TEXT__SELECT_OPTION)
@@ -162,6 +172,7 @@ def run_option():
 def main():
     print(TEXT__HEADER_SCRIPT)
     print(TEXT__MENU_SCRIPT)
+    load_config()
     run_option()
 
 main()
