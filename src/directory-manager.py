@@ -10,8 +10,8 @@
 # 
 # -----------------------------------------------------------
 
-import os
 import json
+import os
 
 DEFAULT__LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 DEFAULT__FILE_CONFIG = "config.json"
@@ -24,7 +24,7 @@ OPTION_MAX = 2
 OPTION__CANCEL = "c"
 OPTION__LIST_DIRECTORIES = 1
 OPTION__INTERACTIVELY_DIRECTORIES = 2
-OPTION__TOP_DIRECTORY = ".."
+OPTION__TOP_DIRECTORY = "."
 
 
 TEXT__HEADER_SCRIPT = \
@@ -158,6 +158,7 @@ def run_option():
             if select_dir == OPTION__CANCEL:
                 exit(TEXT__FINISH_SCRIPT)
             elif select_dir == OPTION__TOP_DIRECTORY:
+                select_dir = ".."
                 os.chdir(current_dir + "\\" + select_dir)
             else: # OPTION__CHANGE_DIRECTORY
                 # TODO refactor this section
