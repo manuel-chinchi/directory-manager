@@ -275,12 +275,12 @@ def run_option():
                 exit(" Finish script")
             elif select_dir == OPTION__TOP_DIRECTORY:
                 select_dir = ".."
-                os.chdir(current_dir + "\\" + select_dir)
+                os.chdir(os.path.join(current_dir, select_dir))
             else: # OPTION__CHANGE_DIRECTORY
                 # TODO refactor this section
                 if isinstance(select_dir, int) == True:
                     select_dir = get_enum_directories()[select_dir]
-                os.chdir(current_dir + "\\" + select_dir)
+                os.chdir(os.path.join(current_dir, select_dir))
                 
             current_dir = os.getcwd()
             print(TEXT__EMPTY)
